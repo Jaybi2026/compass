@@ -41,12 +41,10 @@
                         
                         <path d="M16 150L20 105L16 80L12 105L16 150Z" fill="#b45309" stroke="#d97706" stroke-width="0.5"/>
                         <path d="M16 105L18.5 135L16 147L16 105Z" fill="#78350f"/>
-                        
                         <path d="M16 95C21 95 24 105 21 115C19 122 16 125 16 125C16 125 13 122 11 115C8 105 11 95 16 95Z" stroke="#d97706" stroke-width="1" fill="none"/>
                         <path d="M16 88C24 88 28 100 24 118C21 130 16 135 16 135C16 135 11 130 8 118C4 100 8 88 16 88Z" stroke="#b45309" stroke-width="0.8" fill="none"/>
                         
                         <path d="M16 66L19.5 80L30 80L21 84L24 94L16 86L8 94L11 84L2 80L12.5 80L16 66Z" fill="#fbbf24" opacity="0.8"/>
-                        
                         <circle cx="16" cy="80" r="6" fill="#d97706" stroke="#78350f" stroke-width="1"/>
                         <circle cx="16" cy="80" r="3.5" fill="#fbbf24"/>
                         <circle cx="16" cy="80" r="1" fill="#ffffff"/>
@@ -61,12 +59,37 @@
                 <h2 class="text-xl font-semibold text-amber-900 mb-4 flex items-center">🧭 從社會劇本中退場，拿回妳的人生話事權​</h2>
                 <div id="general-intro" class="text-stone-600 leading-relaxed space-y-4 mb-6 text-justify">
                     </div>
-                <button onclick="goToStep2()" class="w-full md:w-auto px-6 py-3 bg-amber-700 hover:bg-amber-800 text-white font-medium rounded-lg shadow transition duration-200">
-                    開始校準羅盤 →
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button onclick="goToPath('manual')" class="w-full text-center px-6 py-3 border-2 border-amber-700 text-amber-800 hover:bg-amber-50 font-medium rounded-lg shadow transition duration-200">
+                        🙋‍♀️ 自行選擇羅盤方向
+                    </button>
+                    <button onclick="goToPath('auto')" class="w-full text-center px-6 py-3 bg-amber-700 hover:bg-amber-800 text-white font-medium rounded-lg shadow transition duration-200">
+                        🧭 開始校準羅盤 (隨機)
+                    </button>
+                </div>
+            </div>
+
+            <div id="step-2-manual" class="hidden text-center">
+                <h2 class="text-xl font-semibold text-amber-900 mb-2">🧭 請選取妳想要對準的生命軸線</h2>
+                <p class="text-stone-500 text-sm mb-4">點擊下方按鈕，羅盤針將對齊該區，點擊確定後即可查看解析：</p>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-6">
+                    <button onclick="manualTurn(1)" class="zone-btn p-2 text-xs bg-white border border-stone-300 rounded hover:bg-amber-50 transition">1. 出場情緒</button>
+                    <button onclick="manualTurn(2)" class="zone-btn p-2 text-xs bg-white border border-stone-300 rounded hover:bg-amber-50 transition">2. 純粹身體</button>
+                    <button onclick="manualTurn(3)" class="zone-btn p-2 text-xs bg-white border border-stone-300 rounded hover:bg-amber-50 transition">3. 自我發光</button>
+                    <button onclick="manualTurn(4)" class="zone-btn p-2 text-xs bg-white border border-stone-300 rounded hover:bg-amber-50 transition">4. 情感連結</button>
+                    <button onclick="manualTurn(5)" class="zone-btn p-2 text-xs bg-white border border-stone-300 rounded hover:bg-amber-50 transition">5. 有限時間</button>
+                    <button onclick="manualTurn(6)" class="zone-btn p-2 text-xs bg-white border border-stone-300 rounded hover:bg-amber-50 transition">6. 展現獨特</button>
+                    <button onclick="manualTurn(7)" class="zone-btn p-2 text-xs bg-white border border-stone-300 rounded hover:bg-amber-50 transition">7. 金錢觀念</button>
+                    <button onclick="manualTurn(8)" class="zone-btn p-2 text-xs bg-white border border-stone-300 rounded hover:bg-amber-50 transition">8. 社交連結</button>
+                </div>
+
+                <button onclick="confirmManualSelection()" class="w-full md:w-auto px-10 py-3 bg-amber-800 hover:bg-amber-900 text-white font-semibold rounded-lg shadow-md transition">
+                    確定
                 </button>
             </div>
 
-            <div id="step-2" class="hidden text-center">
+            <div id="step-2-auto" class="hidden text-center">
                 <h2 class="text-xl font-semibold text-amber-900 mb-3">🔍 命運校準：傾聽內心的聲音</h2>
                 <p class="text-stone-600 mb-6 max-w-md mx-auto">
                     請聆聽導師的口述引導。閉上雙眼，深呼吸，當妳準備好面對當前的困局時，請點擊下方按鈕，讓羅盤指針為妳引路。
@@ -83,31 +106,8 @@
                 </div>
                 <div id="selected-zone-content" class="text-stone-600 leading-relaxed space-y-4 mb-6 text-justify">
                     </div>
-                <div class="flex flex-col sm:flex-row gap-3">
-                    <button onclick="goToStep4()" class="w-full sm:w-auto px-6 py-3 bg-rose-700 hover:bg-rose-800 text-white font-medium rounded-lg shadow transition">
-                        進入樂高探索 🧱
-                    </button>
-                    <button onclick="resetToStep2()" class="w-full sm:w-auto px-5 py-3 border border-stone-300 text-stone-600 rounded-lg hover:bg-stone-100 transition text-center">
-                        重新校準旋轉
-                    </button>
-                </div>
-            </div>
-
-            <div id="step-4" class="hidden fade-in">
-                <h2 class="text-xl font-bold text-rose-800 mb-4 flex items-center">🧱 LEGO Serious Play 核心探索</h2>
-                <p class="text-stone-600 mb-4">現在，請拿出妳的樂高積木。跟隨下方的核心提問，動手建構出妳的答案：</p>
-                
-                <div class="bg-white border-l-4 border-rose-500 p-4 rounded-r-lg mb-6 shadow-sm">
-                    <h3 class="font-semibold text-stone-800 mb-1">當前探索提問：</h3>
-                    <p id="lego-question" class="text-stone-700 italic leading-relaxed">
-                        </p>
-                </div>
-
-                <label class="block text-sm font-medium text-stone-700 mb-2">💡 妳的模型賦予了什麼故事與意義？</label>
-                <textarea class="w-full p-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:outline-none mb-4" rows="4" placeholder="在這裡寫下妳的樂高作品反思或直覺想法..."></textarea>
-
-                <button onclick="restartAll()" class="px-5 py-2.5 bg-stone-800 hover:bg-stone-900 text-white rounded-lg transition">
-                    重新校準其他維度
+                <button onclick="restartAll()" class="w-full sm:w-auto px-6 py-3 bg-stone-800 hover:bg-stone-900 text-white font-medium rounded-lg transition">
+                    返回首頁重新校準
                 </button>
             </div>
 
@@ -129,8 +129,7 @@
                         "「這是我愛上年齡增長的其中一件事——我意識到我可以做出不同的選擇。我可以放下那個習慣，不必一直帶著它。所以我現在試著不再用微笑掩蓋壓力，而是直接承認它，然後讓它離開。」 — Anne Hathaway",
                         "正如電影《Inside Out》所啟示的，妳的內在由各種不同色彩的情緒共同組成，無論是憂傷、憤怒還是恐懼等，都有其不可或缺的戲份，妳不需要強迫自己永遠保持正面。成年後，生活經驗讓妳看清什麼才值得投入心力，而這場修煉的核心就是全然接納與允許這些情緒角色因應不同情境粉墨登場。",
                         "貼心提醒：這群角色留在螢幕上多久、妳的行動要被它們影響多深，不能是盲目的被動反應，而是由妳做導演，掌握絕對的主控權。妳將從被舊習慣與情緒牽著走的習慣，轉變為「有意識選擇出場情緒」的引導者。"
-                    ], 
-                    lego: "請用樂高砌出：『當妳不再用微笑掩蓋壓力、能自由選擇出場情緒時，妳內心那位由妳執導的「總導演」長什麼樣子？』" 
+                    ]
                 },
                 2: { 
                     title: "2. 純粹身體（以純粹為軸心）", 
@@ -138,8 +137,7 @@
                         "在商業社會和資本主義的推動下，媒體不斷製造各種健康焦慮與潮流︰從營養補充品到減肥針、最新的「科學研究」，背後目的多是為了銷售更多的產品與服務。人們被這些人工打造的「解決方案」催眠，盲目相信必須依靠化學物質與高科技介入才能維持健康，卻逐漸遺忘了大自然本身，以及人類身體與生俱來的自癒和平衡能力。",
                         "真正的自在感，不是追逐這些商業包裝的「健康」，而是回歸簡單、自然，讓身體與生活感到舒服、能量穩定、心情輕鬆的日常狀態。當妳為自己準備一盒簡單又具營養的飯盒，吃完後感受到那股滿足的能量，而非充滿化學物質的加工食品，那份踏實與開心，才是自在感最真實的體現。",
                         "現代人活在環境壓力、化學物質與消費主義的惡性循環之中，身體每況愈下，才讓「健康」 變成努力追求的目標。其實自在感本是垂手可得︰只需透過日常小選擇，減少不必要的干擾，讓身體回歸自然運作，每一天就能過得安心、滿足、有品質。當身體真正感覺舒服自在，妳會在鏡中看見更從容、有光彩的自己。"
-                    ], 
-                    lego: "請用樂高砌出：『擺脫所有商業包裝的健康焦慮後，妳身體感到最「簡單、舒服且自然運作」的理想日常能量狀態。』" 
+                    ]
                 },
                 3: { 
                     title: "3. 成為自己的發光體", 
@@ -147,8 +145,7 @@
                         "與其在屏幕前追逐他人，不如將目光收回，重整妳的內在坐標。生存在垃圾資訊充斥的時代，人被動地接收來自四方八面不完整的訊息，在虛假的網絡社交中喪失了深度思考的判斷力。「成為自己的發光體」的核心意義在於：妳不再是折射他人光芒的小行星，而是變成能夠自給自足，更可照亮他人的光源。",
                         "當生理規律處於自然的下行轉折，持續的心智進階是妳最強大的抗老劑。這是一次身分的解構與重組：讓妳在「媽媽、太太、員工⋯⋯」這些承載社會期待的標籤之外，演變成「學習者、創作者、冒險者⋯⋯」的新形象。這些行動不為應付任何責任，而是為了在重複的日常裡，建立一個連妳自己都由衷佩服、具備韌性的靈魂。",
                         "停止向外仰望偶像，轉而向內深耕。當妳開始為自己而學、為心靈而闖，妳的名字將不再只是某個人的誰，而是妳生命中，最值得依仗的風向儀。"
-                    ], 
-                    lego: "請用樂高砌出：『拆解掉社會貼在妳身上的標籤後，妳體內那顆「能自給自足、閃閃發光」的獨立靈魂核心。』" 
+                    ]
                 },
                 4: { 
                     title: "4. 編織情感連結網", 
@@ -156,8 +153,7 @@
                         "妳，是否曾審視過自己與至親相處時，那些不知自覺的行為慣性？在這個空虛的時代，社交媒體上充斥著「完美家庭」的表象，卻鮮少有人戳破背後的真實困局。事實上，人對伴侶的挑選、與子女的張力，甚至對自我的評價，底色大都來自原生家庭的烙印。那些未曾覺察的童年創傷與模式，往往會像一條隱形的鎖鏈，悄悄擺弄著人與人當下的親密關係，甚至在無意間複製到了下一代身上。",
                         "嘗試戒掉埋怨過去，清醒地覺察原生家庭如何在妳身上留下了舊劇本。當看透了那些影響深遠的因果，才真正擁有了斬斷惡性循環、做出不同選擇的自主權。",
                         "健康的連結，不是窒息的捆綁，而是兩顆獨立星辰的相互守望。妳將學習如何在共處中創造高品質的支持，同時學會精準切割邊界——尊重自己與他人獨處的時間與空間。當妳的軸心不再因家庭的引力而傾斜，妳才能建立起真正滋養彼此、溫柔且堅定的情感防線。"
-                    ], 
-                    lego: "請用樂高砌出：『一個「既能溫柔守望、給予高品質支持，又各自保持安全邊界、不窒息捆綁」的情感防線模型。』" 
+                    ]
                 },
                 5: { 
                     title: "5. 善用有限的時間", 
@@ -165,8 +161,7 @@
                         "時間被「自動駕駛」模式無情吞噬？隨著責任遞增、生理代謝的自然轉折，我們的恢復力已不復當年，但生活卻在 AI 與互聯網的失速推動下，變得更加虛浮表象。多數人在無意識地滑動手機中，任由垃圾資訊日漸蠶食掉寶貴的閒置時間。當妳珍貴的專注力四散零落時，隨之而來的，是更深的空虛與失控感。",
                         "時間有限。「把每分鐘塞滿」或「追求完美效率」是毫無價值，更會形成另一種隱形的焦慮枷鎖。相反地，這是一場關於有意識分配時間與能量的奪權行動。請覺察並保護妳最想留給自己的核心時間——無論是深度學習、身體運動，還是純粹的精神探索。",
                         "這是一道界限清楚的防火牆，幫妳過濾掉無謂的消耗，將時間用在真正產生價值、能滋養妳的人與事上。故意在行事曆上留白，當妳學會為自己而自律，在鏡子前看到的將是散發著從容魅力、神采奕奕的真我。"
-                    ], 
-                    lego: "請用樂高砌出：『在行事曆上為自己蓄意留出的那塊「能深度滋養妳的精神留白防火牆」。』" 
+                    ]
                 },
                 6: { 
                     title: "6. 展現妳的獨特", 
@@ -174,8 +169,7 @@
                         "當妳凝視鏡中的自己時，看見的是歲月的痕跡，還是由心散發的光芒？活於打卡時代，社交媒體不斷販賣集體的凍齡焦慮，驅使人們盲目追隨流俗的穿搭潮流，卻完全忽略了自身特質，落得毫無個性可言。",
                         "「減齡」，絕非依賴昂貴的美容產品或醫美來粉飾太平，更不是拼命遮掩老去的痕跡；相反地，這是一場「外在形象是內在力量延伸」的自我接納。請妳下定決心告別對身體的粗心與懶惰。妳必須清醒地體認到：所有的外在保養，若沒有最基本的正常生活習慣支撐，做再多也是徒然。",
                         "當妳由內而外打好根基，面對鏡子時，妳自信的來源將是整體的氣色與挺拔的姿勢。穿衣不再是為了掩飾身材，而是穿出契合妳層次的獨特魅力。"
-                    ], 
-                    lego: "請用樂高砌出：『一件不盲從流俗、能由內而外延伸出妳此時此刻自信與挺拔姿態的「獨特魅力放大器」。』" 
+                    ]
                 },
                 7: { 
                     title: "7. 別把金錢留到死", 
@@ -183,8 +177,7 @@
                         "妳有被「生存恐懼」綁架嗎？在物慾橫流的社會，妳被催眠去盲目追求數字的累積，誤將金錢推上人生排行榜的第一位，甚至扭曲了「積穀防飢」的本意，落得「窮得只剩下錢」的痛苦徘徊。這是由金錢社會營造出來的集體焦慮。",
                         "雙目澄明的妳開始思考著，「富足」根本就沒有單一的定義。妳將清醒地盤點自己擁有多少，並釐清內心真正渴望的體驗。如同《Die with Zero》所啟示的，金錢只是換取生命體驗的燃料，最珍貴的資產是那些隨著歲月不斷滋養靈魂的「記憶股息」。",
                         "妳不想再被社會的財富劇本帶著走，妳學會靈活運用手中的有形與無形資產，去創造豐富的體驗與精神探索。當妳不再被恐懼囚禁，金錢便會像流暢的水流般在妳的生命裡健康循環。"
-                    ], 
-                    lego: "請用樂高砌出：『妳用有形燃料（資產）所換來、最想存放進靈魂深處的某一個「記憶股息」場景。』" 
+                    ]
                 },
                 8: { 
                     title: "8. 重啟社交連結", 
@@ -192,16 +185,16 @@
                         "妳是否也步入了「人越大，朋友越少」的生命常態？這並非必然的孤獨。許多人在建立家庭或伴侶關係後，便任由朋友的位置急速墜落，將所有情感重擔傾倒在家庭內部，這往往是靈魂失重的隱形起因。回想讀書時代，妳和摯友共渡的歲月，說不盡的話題，傾不盡的少女心事，都是在回憶中深刻的烙印。朋友，是家庭與感情之外的能量補給站。",
                         "社交生活講求「質量」。不需要追求天天聚會的虛浮熱鬧，而是有意識地篩選出能共同成長、尊重界限的優質關係。不想參加的飯局就優雅婉拒，不再懷抱內疚；同時，在興趣或學習社群中主動探索新連結、重啟對外的人際網絡。",
                         "這能讓妳從「只照顧家人」的單一劇本，轉向「被世界溫柔對待」的豐盛體驗。當妳在社交後感覺能量被補充而非耗盡，妳會不自覺地長出了吸引他人的磁場。"
-                    ], 
-                    lego: "請用樂高砌出：『一個能讓妳優雅與不適當飯局斷聯、卻能為靈魂高效充電的「優質外部能量補給站」。』" 
+                    ]
                 }
             }
         };
 
-        // 羅盤 8 個區域對應的角度 (正上方 1 區為 0 度，順時針每區加 45 度)
+        // 羅盤 8 個區域對應的角度
         const zoneAngles = { 1: 0, 2: 45, 3: 90, 4: 135, 5: 180, 6: 225, 7: 270, 8: 315 };
+        let selectedZone = 1;
 
-        // 頁面加載時渲染首頁文字
+        // 渲染首頁文字
         const introContainer = document.getElementById('general-intro');
         textData.generalIntro.forEach(p => {
             const paragraph = document.createElement('p');
@@ -209,31 +202,76 @@
             introContainer.appendChild(paragraph);
         });
 
-        function goToStep2() {
+        // 依路徑切換頁面
+        function goToPath(mode) {
             document.getElementById('step-1').classList.add('hidden');
             document.getElementById('static-image-container').classList.add('hidden');
             document.getElementById('interactive-compass-container').classList.remove('hidden');
-            document.getElementById('step-2').classList.remove('hidden');
+            
+            // 指針重設為 0
+            const pointer = document.getElementById('compass-pointer');
+            pointer.style.transition = 'none';
+            pointer.style.transform = 'rotate(0deg)';
+            void pointer.offsetHeight;
+            pointer.style.transition = 'transform 4s cubic-bezier(0.25, 1, 0.2, 1)';
+
+            if (mode === 'manual') {
+                selectedZone = 1; // 預設第 1 區
+                highlightZoneBtn(1);
+                document.getElementById('step-2-manual').classList.remove('hidden');
+            } else if (mode === 'auto') {
+                document.getElementById('step-2-auto').classList.remove('hidden');
+            }
         }
 
+        // 手動模式：指針轉向選中的區域
+        function manualTurn(zoneId) {
+            selectedZone = zoneId;
+            highlightZoneBtn(zoneId);
+            
+            // 手動模式時，轉速調快，提供直覺的反饋感
+            const pointer = document.getElementById('compass-pointer');
+            pointer.style.transition = 'transform 0.8s cubic-bezier(0.25, 1, 0.2, 1)';
+            pointer.style.transform = `rotate(${zoneAngles[zoneId]}deg)`;
+        }
+
+        // 高亮手動模式選中的按鈕
+        function highlightZoneBtn(zoneId) {
+            const btns = document.querySelectorAll('.zone-btn');
+            btns.forEach((btn, index) => {
+                if (index === (zoneId - 1)) {
+                    btn.classList.remove('bg-white', 'text-stone-700');
+                    btn.classList.add('bg-amber-700', 'text-white');
+                } else {
+                    btn.classList.remove('bg-amber-700', 'text-white');
+                    btn.classList.add('bg-white', 'text-stone-700');
+                }
+            });
+        }
+
+        // 手動模式：點擊確定
+        function confirmManualSelection() {
+            document.getElementById('step-2-manual').classList.add('hidden');
+            showZoneResult(selectedZone);
+        }
+
+        // 自動模式：啟動隨機旋轉動畫
         function startSpinAnimation() {
             const btn = document.getElementById('spin-btn');
             btn.disabled = true;
             btn.innerText = "⏳ 羅盤轉動，正在校準內在軸線...";
             btn.classList.add('opacity-50', 'cursor-not-allowed');
 
-            // 隨機選 1~8 區
             const randomZone = Math.floor(Math.random() * 8) + 1;
-
-            // 炫目旋轉效果：先轉 5 圈 (360 * 5) 再到指定角度
             const targetAngle = zoneAngles[randomZone];
-            const finalAngle = (360 * 5) + targetAngle;
+            const finalAngle = (360 * 5) + targetAngle; // 旋轉 5 圈後煞車
 
             const pointer = document.getElementById('compass-pointer');
+            pointer.style.transition = 'transform 4s cubic-bezier(0.25, 1, 0.2, 1)';
             pointer.style.transform = `rotate(${finalAngle}deg)`;
 
-            // 4.2 秒後動畫靜止並顯示結果
             setTimeout(() => {
+                document.getElementById('step-2-auto').classList.add('hidden');
                 showZoneResult(randomZone);
                 btn.disabled = false;
                 btn.innerText = "🧭 啟動指南針，隨機指向一區";
@@ -241,13 +279,11 @@
             }, 4200);
         }
 
+        // 共用：漂亮的動畫展開 250 字解析
         function showZoneResult(zoneId) {
-            document.getElementById('step-2').classList.add('hidden');
-            
             const zoneInfo = textData.zones[zoneId];
             document.getElementById('selected-zone-title').innerText = zoneInfo.title;
             
-            // 渲染解析內容
             const contentContainer = document.getElementById('selected-zone-content');
             contentContainer.innerHTML = ''; 
             zoneInfo.content.forEach(text => {
@@ -256,34 +292,21 @@
                 contentContainer.appendChild(p);
             });
 
-            document.getElementById('lego-question').innerText = zoneInfo.lego;
             document.getElementById('step-3').classList.remove('hidden');
         }
 
-        function resetToStep2() {
-            document.getElementById('step-3').classList.add('hidden');
-            const pointer = document.getElementById('compass-pointer');
-            pointer.style.transition = 'none';
-            pointer.style.transform = 'rotate(0deg)';
-            void pointer.offsetHeight; 
-            pointer.style.transition = 'transform 4s cubic-bezier(0.25, 1, 0.2, 1)';
-            document.getElementById('step-2').classList.remove('hidden');
-        }
-
-        function goToStep4() {
-            document.getElementById('interactive-compass-container').classList.add('hidden');
-            document.getElementById('step-3').classList.add('hidden');
-            document.getElementById('static-image-container').classList.remove('hidden');
-            document.getElementById('step-4').classList.remove('hidden');
-        }
-
+        // 完全重來：返回首頁
         function restartAll() {
-            document.getElementById('step-4').classList.add('hidden');
+            document.getElementById('step-3').classList.add('hidden');
+            document.getElementById('interactive-compass-container').classList.add('hidden');
+            
+            // 指針完全歸零
             const pointer = document.getElementById('compass-pointer');
             pointer.style.transition = 'none';
             pointer.style.transform = 'rotate(0deg)';
             void pointer.offsetHeight;
-            pointer.style.transition = 'transform 4s cubic-bezier(0.25, 1, 0.2, 1)';
+
+            document.getElementById('static-image-container').classList.remove('hidden');
             document.getElementById('step-1').classList.remove('hidden');
         }
     </script>
