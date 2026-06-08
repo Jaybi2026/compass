@@ -59,12 +59,12 @@
                 <h2 class="text-xl font-semibold text-amber-900 mb-4 flex items-center">🧭 從社會劇本中退場，拿回妳的人生話事權​</h2>
                 <div id="general-intro" class="text-stone-600 leading-relaxed space-y-4 mb-6 text-justify">
                     </div>
-                <div class="flex flex-col sm:flex-row gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <button onclick="goToPath('manual')" class="w-full text-center px-6 py-3 border-2 border-amber-700 text-amber-800 hover:bg-amber-50 font-medium rounded-lg shadow transition duration-200">
-                        🙋‍♀️ 自行選擇羅盤方向
+                        🙋‍♀️ 手動羅盤方向
                     </button>
                     <button onclick="goToPath('auto')" class="w-full text-center px-6 py-3 bg-amber-700 hover:bg-amber-800 text-white font-medium rounded-lg shadow transition duration-200">
-                        🧭 開始校準羅盤 (隨機)
+                        🧭 開始校準羅盤
                     </button>
                 </div>
             </div>
@@ -74,29 +74,39 @@
                 <p class="text-stone-500 text-sm mb-4">點擊下方按鈕，羅盤針將對齊該區，點擊確定後即可查看解析：</p>
                 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-6">
-                    <button onclick="manualTurn(1)" class="zone-btn p-2 text-xs bg-white border border-stone-300 rounded hover:bg-amber-50 transition">1. 出場情緒</button>
-                    <button onclick="manualTurn(2)" class="zone-btn p-2 text-xs bg-white border border-stone-300 rounded hover:bg-amber-50 transition">2. 純粹身體</button>
-                    <button onclick="manualTurn(3)" class="zone-btn p-2 text-xs bg-white border border-stone-300 rounded hover:bg-amber-50 transition">3. 自我發光</button>
-                    <button onclick="manualTurn(4)" class="zone-btn p-2 text-xs bg-white border border-stone-300 rounded hover:bg-amber-50 transition">4. 情感連結</button>
-                    <button onclick="manualTurn(5)" class="zone-btn p-2 text-xs bg-white border border-stone-300 rounded hover:bg-amber-50 transition">5. 有限時間</button>
-                    <button onclick="manualTurn(6)" class="zone-btn p-2 text-xs bg-white border border-stone-300 rounded hover:bg-amber-50 transition">6. 展現獨特</button>
-                    <button onclick="manualTurn(7)" class="zone-btn p-2 text-xs bg-white border border-stone-300 rounded hover:bg-amber-50 transition">7. 金錢觀念</button>
-                    <button onclick="manualTurn(8)" class="zone-btn p-2 text-xs bg-white border border-stone-300 rounded hover:bg-amber-50 transition">8. 社交連結</button>
+                    <button onclick="manualTurn(1)" class="zone-btn p-2 text-xs bg-white border border-stone-300 rounded hover:bg-amber-50 transition">1. 選擇出場情緒</button>
+                    <button onclick="manualTurn(2)" class="zone-btn p-2 text-xs bg-white border border-stone-300 rounded hover:bg-amber-50 transition">2. 身體以「純粹」為軸心</button>
+                    <button onclick="manualTurn(3)" class="zone-btn p-2 text-xs bg-white border border-stone-300 rounded hover:bg-amber-50 transition">3. 成為自己的發光體</button>
+                    <button onclick="manualTurn(4)" class="zone-btn p-2 text-xs bg-white border border-stone-300 rounded hover:bg-amber-50 transition">4. 編織情感連結網</button>
+                    <button onclick="manualTurn(5)" class="zone-btn p-2 text-xs bg-white border border-stone-300 rounded hover:bg-amber-50 transition">5. 善用有限的時間</button>
+                    <button onclick="manualTurn(6)" class="zone-btn p-2 text-xs bg-white border border-stone-300 rounded hover:bg-amber-50 transition">6. 展現妳的獨特</button>
+                    <button onclick="manualTurn(7)" class="zone-btn p-2 text-xs bg-white border border-stone-300 rounded hover:bg-amber-50 transition">7. 別把金錢留到死</button>
+                    <button onclick="manualTurn(8)" class="zone-btn p-2 text-xs bg-white border border-stone-300 rounded hover:bg-amber-50 transition">8. 重啟社交連結</button>
                 </div>
 
-                <button onclick="confirmManualSelection()" class="w-full md:w-auto px-10 py-3 bg-amber-800 hover:bg-amber-900 text-white font-semibold rounded-lg shadow-md transition">
-                    確定
-                </button>
+                <div class="flex flex-col sm:flex-row justify-center gap-3">
+                    <button onclick="restartAll()" class="w-full sm:w-auto px-8 py-3 border border-stone-300 text-stone-600 rounded-lg hover:bg-stone-100 transition text-center order-2 sm:order-1">
+                        返回上一頁
+                    </button>
+                    <button onclick="confirmManualSelection()" class="w-full sm:w-auto px-10 py-3 bg-amber-800 hover:bg-amber-900 text-white font-semibold rounded-lg shadow-md transition order-1 sm:order-2">
+                        確定
+                    </button>
+                </div>
             </div>
 
             <div id="step-2-auto" class="hidden text-center">
                 <h2 class="text-xl font-semibold text-amber-900 mb-3">🔍 命運校準：傾聽內心的聲音</h2>
                 <p class="text-stone-600 mb-6 max-w-md mx-auto">
-                    請聆聽導師的口述引導。閉上雙眼，深呼吸，當妳準備好面對當前的困局時，請點擊下方按鈕，讓羅盤指針為妳引路。
+                    請閉上雙眼，深呼吸，當妳準備好面對當前的困局時，請點擊下方按鈕，讓羅盤指針為妳引路。
                 </p>
-                <button id="spin-btn" onclick="startSpinAnimation()" class="px-8 py-3 bg-amber-700 hover:bg-amber-800 text-white font-semibold rounded-lg shadow-lg transform active:scale-95 transition">
-                    🧭 啟動指南針，隨機指向一區
-                </button>
+                <div class="flex flex-col sm:flex-row justify-center gap-3">
+                    <button onclick="restartAll()" class="w-full sm:w-auto px-8 py-3 border border-stone-300 text-stone-600 rounded-lg hover:bg-stone-100 transition text-center order-2 sm:order-1">
+                        返回上一頁
+                    </button>
+                    <button id="spin-btn" onclick="startSpinAnimation()" class="w-full sm:w-auto px-8 py-3 bg-amber-700 hover:bg-amber-800 text-white font-semibold rounded-lg shadow-lg transform active:scale-95 transition order-1 sm:order-2">
+                        🧭 啟動指南針
+                    </button>
+                </div>
             </div>
 
             <div id="step-3" class="hidden fade-in">
@@ -132,7 +142,7 @@
                     ]
                 },
                 2: { 
-                    title: "2. 純粹身體（以純粹為軸心）", 
+                    title: "2. 身體以「純粹」為軸心", 
                     content: [
                         "在商業社會和資本主義的推動下，媒體不斷製造各種健康焦慮與潮流︰從營養補充品到減肥針、最新的「科學研究」，背後目的多是為了銷售更多的產品與服務。人們被這些人工打造的「解決方案」催眠，盲目相信必須依靠化學物質與高科技介入才能維持健康，卻逐漸遺忘了大自然本身，以及人類身體與生俱來的自癒和平衡能力。",
                         "真正的自在感，不是追逐這些商業包裝的「健康」，而是回歸簡單、自然，讓身體與生活感到舒服、能量穩定、心情輕鬆的日常狀態。當妳為自己準備一盒簡單又具營養的飯盒，吃完後感受到那股滿足的能量，而非充滿化學物質的加工食品，那份踏實與開心，才是自在感最真實的體現。",
@@ -274,7 +284,7 @@
                 document.getElementById('step-2-auto').classList.add('hidden');
                 showZoneResult(randomZone);
                 btn.disabled = false;
-                btn.innerText = "🧭 啟動指南針，隨機指向一區";
+                btn.innerText = "🧭 啟動指南針";
                 btn.classList.remove('opacity-50', 'cursor-not-allowed');
             }, 4200);
         }
@@ -295,9 +305,11 @@
             document.getElementById('step-3').classList.remove('hidden');
         }
 
-        // 完全重來：返回首頁
+        // 完全重來 / 返回上一頁共用
         function restartAll() {
             document.getElementById('step-3').classList.add('hidden');
+            document.getElementById('step-2-manual').classList.add('hidden');
+            document.getElementById('step-2-auto').classList.add('hidden');
             document.getElementById('interactive-compass-container').classList.add('hidden');
             
             // 指針完全歸零
