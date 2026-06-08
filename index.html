@@ -11,7 +11,7 @@
         
         /* 指南針旋轉動畫控制 */
         #compass-pointer {
-            transform-origin: 12px 75px; /* 精準設定纖細指針的旋轉中心點 */
+            transform-origin: 16px 80px; /* 精確定位復古指針的圓心旋轉點 */
             transition: transform 4s cubic-bezier(0.25, 1, 0.2, 1); /* 漸慢的高級感動畫 */
         }
     </style>
@@ -34,16 +34,22 @@
                 <img src="image.png" alt="Compass Base" class="w-full h-full object-contain rounded-full">
                 
                 <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <svg id="compass-pointer" class="w-6 h-40 mt-[-10px]" viewBox="0 0 24 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 5L15 45L12 75L9 45L12 5Z" fill="#581c87" stroke="#fbbf24" stroke-width="0.7"/>
-                        <path d="M12 12L13.5 45L12 70L10.5 45L12 12Z" fill="#3b0764"/>
-                        <path d="M12 145L15 105L12 75L9 105L12 145Z" fill="#2e1065" stroke="#fbbf24" stroke-width="0.5"/>
+                    <svg id="compass-pointer" class="w-8 h-44 mt-[-4px]" viewBox="0 0 32 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 10L21 55L16 80L11 55L16 10Z" fill="#b91c1c" stroke="#d97706" stroke-width="0.7"/>
+                        <path d="M16 15L18.5 55L16 77L13.5 55L16 15Z" fill="#991b1b"/>
+                        <path d="M16 15L16 77L13.5 55L16 15Z" fill="#7f1d1d" opacity="0.3"/>
                         
-                        <path d="M12 60L13.5 75L12 90L10.5 75L12 60Z" fill="#d97706"/>
-                        <path d="M0 75L12 73.5L24 75L12 76.5L0 75Z" fill="#d97706"/>
+                        <path d="M16 150L20 105L16 80L12 105L16 150Z" fill="#b45309" stroke="#d97706" stroke-width="0.5"/>
+                        <path d="M16 105L18.5 135L16 147L16 105Z" fill="#78350f"/>
                         
-                        <circle cx="12" cy="75" r="3.5" fill="#fbbf24" stroke="#b45309" stroke-width="1"/>
-                        <circle cx="12" cy="75" r="1" fill="#ffffff"/>
+                        <path d="M16 95C21 95 24 105 21 115C19 122 16 125 16 125C16 125 13 122 11 115C8 105 11 95 16 95Z" stroke="#d97706" stroke-width="1" fill="none"/>
+                        <path d="M16 88C24 88 28 100 24 118C21 130 16 135 16 135C16 135 11 130 8 118C4 100 8 88 16 88Z" stroke="#b45309" stroke-width="0.8" fill="none"/>
+                        
+                        <path d="M16 66L19.5 80L30 80L21 84L24 94L16 86L8 94L11 84L2 80L12.5 80L16 66Z" fill="#fbbf24" opacity="0.8"/>
+                        
+                        <circle cx="16" cy="80" r="6" fill="#d97706" stroke="#78350f" stroke-width="1"/>
+                        <circle cx="16" cy="80" r="3.5" fill="#fbbf24"/>
+                        <circle cx="16" cy="80" r="1" fill="#ffffff"/>
                     </svg>
                 </div>
             </div>
@@ -138,7 +144,7 @@
                 3: { 
                     title: "3. 成為自己的發光體", 
                     content: [
-                        "與氣在屏幕前追逐他人，不如將目光收回，重整妳的內在坐標。生存在垃圾資訊充斥的時代，人被動地接收來自四方八面不完整的訊息，在虛假的網絡社交中喪失了深度思考的判斷力。「成為自己的發光體」的核心意義在於：妳不再是折射他人光芒的小行星，而是變成能夠自給自足，更可照亮他人的光源。",
+                        "與其在屏幕前追逐他人，不如將目光收回，重整妳的內在坐標。生存在垃圾資訊充斥的時代，人被動地接收來自四方八面不完整的訊息，在虛假的網絡社交中喪失了深度思考的判斷力。「成為自己的發光體」的核心意義在於：妳不再是折射他人光芒的小行星，而是變成能夠自給自足，更可照亮他人的光源。",
                         "當生理規律處於自然的下行轉折，持續的心智進階是妳最強大的抗老劑。這是一次身分的解構與重組：讓妳在「媽媽、太太、員工⋯⋯」這些承載社會期待的標籤之外，演變成「學習者、創作者、冒險者⋯⋯」的新形象。這些行動不為應付任何責任，而是為了在重複的日常裡，建立一個連妳自己都由衷佩服、具備韌性的靈魂。",
                         "停止向外仰望偶像，轉而向內深耕。當妳開始為自己而學、為心靈而闖，妳的名字將不再只是某個人的誰，而是妳生命中，最值得依仗的風向儀。"
                     ], 
