@@ -11,7 +11,7 @@
         
         /* 指南針旋轉動畫控制 */
         #compass-pointer {
-            transform-origin: center center;
+            transform-origin: 12px 75px; /* 精準設定纖細指針的旋轉中心點 */
             transition: transform 4s cubic-bezier(0.25, 1, 0.2, 1); /* 漸慢的高級感動畫 */
         }
     </style>
@@ -34,10 +34,16 @@
                 <img src="image.png" alt="Compass Base" class="w-full h-full object-contain rounded-full">
                 
                 <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <svg id="compass-pointer" class="w-12 h-40 md:w-16 md:h-48" viewBox="0 0 24 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 0L24 50L12 42L0 50L12 0Z" fill="#b91c1c"/>
-                        <path d="M12 100L24 50L12 42L0 50L12 100Z" fill="#44403c"/>
-                        <circle cx="12" cy="42" r="4" fill="#f59e0b"/>
+                    <svg id="compass-pointer" class="w-6 h-40 mt-[-10px]" viewBox="0 0 24 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 5L15 45L12 75L9 45L12 5Z" fill="#581c87" stroke="#fbbf24" stroke-width="0.7"/>
+                        <path d="M12 12L13.5 45L12 70L10.5 45L12 12Z" fill="#3b0764"/>
+                        <path d="M12 145L15 105L12 75L9 105L12 145Z" fill="#2e1065" stroke="#fbbf24" stroke-width="0.5"/>
+                        
+                        <path d="M12 60L13.5 75L12 90L10.5 75L12 60Z" fill="#d97706"/>
+                        <path d="M0 75L12 73.5L24 75L12 76.5L0 75Z" fill="#d97706"/>
+                        
+                        <circle cx="12" cy="75" r="3.5" fill="#fbbf24" stroke="#b45309" stroke-width="1"/>
+                        <circle cx="12" cy="75" r="1" fill="#ffffff"/>
                     </svg>
                 </div>
             </div>
@@ -108,7 +114,7 @@
                 "35+ 的妳，正處於生命節律轉折的關鍵時刻。妳們的一代，童年還在黑板與粉筆的純真中度過，轉身卻已要在 AI 浪潮裡學習衝浪。短短三十載，科技快得像要把人甩出軌道，讓我們在傳統價值與現代焦慮的夾縫中，拖著中醫學所謂「七年一週期」轉折向下的身體，疲於奔命。",
                 "現今社會極度空虛且表象，社交媒體充斥著刻意營造的貼文與虛假動態。人們在垃圾資訊中逐漸喪失判斷力，導致鮮少有人看透這些表象背後的真實動機。",
                 "當大眾沉迷於網絡宣洩、讓靈魂陷入失重時，妳是否也感受到內心那股無名的渴望？那正是一場超越物質，對生活與精神層面更深邃的探索。",
-                "Self-Axis Compass 協助妳奪回話事權、清醒地重寫人生宣告。它大膽剔除了被社會價值與 KPI 綁架的「事業」標籤，拒絕讓工作或 bullshit 繼續成為壓垮自己的來源。妳將在紛亂中構築內在的穩定軸心，不再用外在成就價值，將能量從外界的評準中收回，轉向對自我的關懷與生命本質的追尋。這是一個指引妳回歸自我的羅盤，誠邀妳放下不再適合的舊劇本。這一次，不再為了迎合世界而活，而是讓世界圍繞著妳的本心，重新轉動。"
+                "Self-Axis Compass 協助妳奪回話事權、清醒地重寫人生宣告。它大膽剔成了被社會價值與 KPI 綁架的「事業」標籤，拒絕讓工作或 bullshit 繼續成為壓垮自己的來源。妳將在紛亂中構築內在的穩定軸心，不再用外在成就價值，將能量從外界的評準中收回，轉向對自我的關懷與生命本質的追尋。這是一個指引妳回歸自我的羅盤，誠邀妳放下不再適合的舊劇本。這一次，不再為了迎合世界而活，而是讓世界圍繞著妳的本心，重新轉動。"
             ],
             zones: {
                 1: { 
@@ -125,14 +131,14 @@
                     content: [
                         "在商業社會和資本主義的推動下，媒體不斷製造各種健康焦慮與潮流︰從營養補充品到減肥針、最新的「科學研究」，背後目的多是為了銷售更多的產品與服務。人們被這些人工打造的「解決方案」催眠，盲目相信必須依靠化學物質與高科技介入才能維持健康，卻逐漸遺忘了大自然本身，以及人類身體與生俱來的自癒和平衡能力。",
                         "真正的自在感，不是追逐這些商業包裝的「健康」，而是回歸簡單、自然，讓身體與生活感到舒服、能量穩定、心情輕鬆的日常狀態。當妳為自己準備一盒簡單又具營養的飯盒，吃完後感受到那股滿足的能量，而非充滿化學物質的加工食品，那份踏實與開心，才是自在感最真實的體現。",
-                        "只需透過日常小選擇，減少不必要的干擾，讓身體回歸自然運作，每一天就能過得安心、滿足、有品質。當身體真正感覺舒服自在，妳會在鏡中看見更從容、有光彩的自己。"
+                        "現代人活在環境壓力、化學物質與消費主義的惡性循環之中，身體每況愈下，才讓「健康」 變成努力追求的目標。其實自在感本是垂手可得︰只需透過日常小選擇，減少不必要的干擾，讓身體回歸自然運作，每一天就能過得安心、滿足、有品質。當身體真正感覺舒服自在，妳會在鏡中看見更從容、有光彩的自己。"
                     ], 
                     lego: "請用樂高砌出：『擺脫所有商業包裝的健康焦慮後，妳身體感到最「簡單、舒服且自然運作」的理想日常能量狀態。』" 
                 },
                 3: { 
                     title: "3. 成為自己的發光體", 
                     content: [
-                        "與其在屏幕前追逐他人，不如將目光收回，重整妳的內在坐標。生存在垃圾資訊充斥的時代，人被動地接收來自四方八面不完整的訊息，在虛假的網絡社交中喪失了深度思考的判斷力。「成為自己的發光體」的核心意義在於：妳不再是折射他人光芒的小行星，而是變成能夠自給自足，更可照亮他人的光源。",
+                        "與氣在屏幕前追逐他人，不如將目光收回，重整妳的內在坐標。生存在垃圾資訊充斥的時代，人被動地接收來自四方八面不完整的訊息，在虛假的網絡社交中喪失了深度思考的判斷力。「成為自己的發光體」的核心意義在於：妳不再是折射他人光芒的小行星，而是變成能夠自給自足，更可照亮他人的光源。",
                         "當生理規律處於自然的下行轉折，持續的心智進階是妳最強大的抗老劑。這是一次身分的解構與重組：讓妳在「媽媽、太太、員工⋯⋯」這些承載社會期待的標籤之外，演變成「學習者、創作者、冒險者⋯⋯」的新形象。這些行動不為應付任何責任，而是為了在重複的日常裡，建立一個連妳自己都由衷佩服、具備韌性的靈魂。",
                         "停止向外仰望偶像，轉而向內深耕。當妳開始為自己而學、為心靈而闖，妳的名字將不再只是某個人的誰，而是妳生命中，最值得依仗的風向儀。"
                     ], 
@@ -220,7 +226,7 @@
             const pointer = document.getElementById('compass-pointer');
             pointer.style.transform = `rotate(${finalAngle}deg)`;
 
-            // 4 秒後動畫靜止並顯示結果
+            // 4.2 秒後動畫靜止並顯示結果
             setTimeout(() => {
                 showZoneResult(randomZone);
                 btn.disabled = false;
@@ -235,9 +241,9 @@
             const zoneInfo = textData.zones[zoneId];
             document.getElementById('selected-zone-title').innerText = zoneInfo.title;
             
-            // 渲染解析內容（分段）
+            // 渲染解析內容
             const contentContainer = document.getElementById('selected-zone-content');
-            contentContainer.innerHTML = ''; // 清空舊內容
+            contentContainer.innerHTML = ''; 
             zoneInfo.content.forEach(text => {
                 const p = document.createElement('p');
                 p.innerText = text;
